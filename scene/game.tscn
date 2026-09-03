@@ -437,32 +437,39 @@ label_settings = SubResource("LabelSettings_xlg7c")
 
 [node name="Control" type="Control" parent="CanvasLayer" unique_id=839578742]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 2
+anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 4.0
-offset_bottom = 4.0
-grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 
 [node name="TouchScreenButtonLeft" type="TouchScreenButton" parent="CanvasLayer/Control" unique_id=1683726247]
-position = Vector2(-5, 474.00003)
+position = Vector2(22, -199.00003)
 scale = Vector2(11.42, 11.018)
 texture_normal = SubResource("AtlasTexture_wq61u")
 action = "move_left"
 visibility_mode = 1
 
 [node name="TouchScreenButtonRight" type="TouchScreenButton" parent="CanvasLayer/Control" unique_id=776031343]
-position = Vector2(197, 467.00006)
+position = Vector2(192, -195)
 scale = Vector2(11.42, 11.018)
 texture_normal = SubResource("AtlasTexture_wq61u")
 action = "move_right"
 visibility_mode = 1
 
-[node name="TouchScreenButtonJump" type="TouchScreenButton" parent="CanvasLayer/Control" unique_id=1864395045]
-position = Vector2(89, 367.00006)
+[node name="Control2" type="Control" parent="CanvasLayer" unique_id=737811031]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="TouchScreenButtonJump" type="TouchScreenButton" parent="CanvasLayer/Control2" unique_id=1864395045]
+position = Vector2(-151, -139.99998)
 scale = Vector2(11.42, 11.018)
 texture_normal = SubResource("AtlasTexture_wq61u")
 action = "jump"
