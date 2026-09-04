@@ -4,15 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://cb4dr60j2gj1d" path="res://scene/platform.tscn" id="1_33cqm"]
 [ext_resource type="Script" uid="uid://duj0falcbfd1q" path="res://scripts/game_manager.gd" id="1_ll5lq"]
 [ext_resource type="Texture2D" uid="uid://d0q2g65ahgok" path="res://assets/sprites/world_tileset.png" id="2_dbls1"]
+[ext_resource type="Script" uid="uid://cinetv4o60lp" path="res://scripts/label_score.gd" id="3_yq8tf"]
 [ext_resource type="PackedScene" uid="uid://eccp0pmj03ry" path="res://scene/kill_zone.tscn" id="4_p1ry8"]
 [ext_resource type="PackedScene" uid="uid://dtkeiebeowxdh" path="res://scene/coin.tscn" id="4_xwcet"]
 [ext_resource type="Texture2D" uid="uid://bped01tsjeycn" path="res://assets/sprites/coin.png" id="6_17rxn"]
 [ext_resource type="PackedScene" uid="uid://bhyctoxdkruw4" path="res://scene/slime.tscn" id="6_xlg7c"]
 [ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="8_17rxn"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_xlg7c"]
-font = ExtResource("8_17rxn")
-font_size = 8
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p1ry8"]
 texture = ExtResource("2_dbls1")
@@ -345,6 +342,10 @@ _data = {
 &"platform_move": SubResource("Animation_xwcet")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_xlg7c"]
+font = ExtResource("8_17rxn")
+font_size = 8
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_wq61u"]
 atlas = ExtResource("6_17rxn")
 region = Rect2(0, 0, 16, 16)
@@ -354,14 +355,6 @@ region = Rect2(0, 0, 16, 16)
 [node name="GameManager" type="Node" parent="." unique_id=1040694548]
 unique_name_in_owner = true
 script = ExtResource("1_ll5lq")
-
-[node name="LabelScore" type="Label" parent="GameManager" unique_id=383300212]
-offset_left = 135.0
-offset_top = -101.0
-offset_right = 271.0
-offset_bottom = -48.0
-text = "You collected X coins."
-label_settings = SubResource("LabelSettings_xlg7c")
 
 [node name="Player" parent="." unique_id=48285453 instance=ExtResource("1_5kiuu")]
 
@@ -426,7 +419,18 @@ position = Vector2(22, -77)
 [node name="Slime" parent="." unique_id=969224363 instance=ExtResource("6_xlg7c")]
 position = Vector2(63, 9)
 
-[node name="Label" type="Label" parent="." unique_id=2040357271]
+[node name="Labels" type="Node" parent="." unique_id=811285895]
+
+[node name="LabelScore" type="Label" parent="Labels" unique_id=383300212]
+offset_left = 135.0
+offset_top = -101.0
+offset_right = 271.0
+offset_bottom = -48.0
+text = "You collected 0 coins."
+label_settings = SubResource("LabelSettings_xlg7c")
+script = ExtResource("3_yq8tf")
+
+[node name="LabelJump" type="Label" parent="Labels" unique_id=2040357271]
 offset_left = -106.0
 offset_top = -4.0
 offset_right = 29.0
@@ -434,44 +438,58 @@ offset_bottom = 49.0
 text = "Space to jump."
 label_settings = SubResource("LabelSettings_xlg7c")
 
+[node name="LabelJump2" type="Label" parent="Labels" unique_id=1598601038]
+offset_left = -110.0
+offset_top = 66.0
+offset_right = 25.0
+offset_bottom = 119.0
+text = "v0.7.0"
+label_settings = SubResource("LabelSettings_xlg7c")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1345082049]
 
-[node name="Control" type="Control" parent="CanvasLayer" unique_id=839578742]
+[node name="Control3" type="Control" parent="CanvasLayer" unique_id=2084979568]
 layout_mode = 3
-anchors_preset = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/Control3" unique_id=839578742]
+layout_mode = 1
 anchor_top = 1.0
 anchor_bottom = 1.0
+offset_top = -175.0
 grow_vertical = 0
 
-[node name="TouchScreenButtonLeft" type="TouchScreenButton" parent="CanvasLayer/Control" unique_id=1683726247]
-position = Vector2(22, -199.00003)
+[node name="TouchScreenButtonLeft" type="TouchScreenButton" parent="CanvasLayer/Control3/Control" unique_id=1683726247]
 scale = Vector2(11.42, 11.018)
 texture_normal = SubResource("AtlasTexture_wq61u")
 action = "move_left"
 visibility_mode = 1
 
-[node name="TouchScreenButtonRight" type="TouchScreenButton" parent="CanvasLayer/Control" unique_id=776031343]
-position = Vector2(192, -195)
+[node name="TouchScreenButtonRight" type="TouchScreenButton" parent="CanvasLayer/Control3/Control" unique_id=776031343]
+position = Vector2(178, 3.9999998)
 scale = Vector2(11.42, 11.018)
 texture_normal = SubResource("AtlasTexture_wq61u")
 action = "move_right"
 visibility_mode = 1
 
-[node name="Control2" type="Control" parent="CanvasLayer" unique_id=737811031]
-layout_mode = 3
-anchors_preset = 3
+[node name="Control2" type="Control" parent="CanvasLayer/Control3" unique_id=737811031]
+layout_mode = 1
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -40.0
+offset_left = -180.0
+offset_top = -175.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="TouchScreenButtonJump" type="TouchScreenButton" parent="CanvasLayer/Control2" unique_id=1864395045]
-position = Vector2(-151, -139.99998)
+[node name="TouchScreenButtonJump" type="TouchScreenButton" parent="CanvasLayer/Control3/Control2" unique_id=1864395045]
 scale = Vector2(11.42, 11.018)
 texture_normal = SubResource("AtlasTexture_wq61u")
 action = "jump"
 visibility_mode = 1
+
+[connection signal="OnPointAdded" from="GameManager" to="Labels/LabelScore" method="_on_game_manager_on_point_added"]

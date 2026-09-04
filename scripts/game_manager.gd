@@ -1,9 +1,10 @@
-extends Node
+
+class_name GameManager extends Node
 
 var score = 0
 
-@onready var label_score: Label = $LabelScore
+signal OnPointAdded(int)
 
 func add_point():
 	score+=1
-	label_score.text = "You collected " + str(score) + " coins." 
+	OnPointAdded.emit(score)
