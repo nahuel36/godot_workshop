@@ -7,9 +7,11 @@
 [ext_resource type="Script" uid="uid://cinetv4o60lp" path="res://scripts/label_score.gd" id="3_yq8tf"]
 [ext_resource type="PackedScene" uid="uid://eccp0pmj03ry" path="res://scene/kill_zone.tscn" id="4_p1ry8"]
 [ext_resource type="PackedScene" uid="uid://dtkeiebeowxdh" path="res://scene/coin.tscn" id="4_xwcet"]
-[ext_resource type="Texture2D" uid="uid://bped01tsjeycn" path="res://assets/sprites/coin.png" id="6_17rxn"]
 [ext_resource type="PackedScene" uid="uid://bhyctoxdkruw4" path="res://scene/slime.tscn" id="6_xlg7c"]
 [ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="8_17rxn"]
+[ext_resource type="Texture2D" uid="uid://bay8akqaghyyd" path="res://assets/sprites/arrow-left.png" id="10_sng2h"]
+[ext_resource type="Texture2D" uid="uid://glnx2gs2jxig" path="res://assets/sprites/arrow-right.png" id="11_5g16k"]
+[ext_resource type="Texture2D" uid="uid://b1mtw66suv2bd" path="res://assets/sprites/arrow-up.png" id="12_81276"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p1ry8"]
 texture = ExtResource("2_dbls1")
@@ -346,9 +348,17 @@ _data = {
 font = ExtResource("8_17rxn")
 font_size = 8
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wq61u"]
-atlas = ExtResource("6_17rxn")
-region = Rect2(0, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_22mai"]
+atlas = ExtResource("10_sng2h")
+region = Rect2(0, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fkuc"]
+atlas = ExtResource("11_5g16k")
+region = Rect2(0, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3dfr"]
+atlas = ExtResource("12_81276")
+region = Rect2(0, 0, 70, 70)
 
 [node name="Game" type="Node2D" unique_id=1650123467]
 
@@ -438,18 +448,19 @@ offset_bottom = 49.0
 text = "Space to jump."
 label_settings = SubResource("LabelSettings_xlg7c")
 
-[node name="LabelJump2" type="Label" parent="Labels" unique_id=1598601038]
+[node name="LabelVersion" type="Label" parent="Labels" unique_id=1598601038]
 offset_left = -110.0
 offset_top = 66.0
 offset_right = 25.0
 offset_bottom = 119.0
-text = "v0.7.0"
+text = "v0.7.4"
 label_settings = SubResource("LabelSettings_xlg7c")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1345082049]
 
 [node name="Control3" type="Control" parent="CanvasLayer" unique_id=2084979568]
 layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -457,26 +468,29 @@ grow_vertical = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Control3" unique_id=839578742]
 layout_mode = 1
+anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_top = -175.0
 grow_vertical = 0
 
 [node name="TouchScreenButtonLeft" type="TouchScreenButton" parent="CanvasLayer/Control3/Control" unique_id=1683726247]
-scale = Vector2(11.42, 11.018)
-texture_normal = SubResource("AtlasTexture_wq61u")
+position = Vector2(0, 9)
+scale = Vector2(2.457143, 2.3142855)
+texture_normal = SubResource("AtlasTexture_22mai")
 action = "move_left"
 visibility_mode = 1
 
 [node name="TouchScreenButtonRight" type="TouchScreenButton" parent="CanvasLayer/Control3/Control" unique_id=776031343]
 position = Vector2(178, 3.9999998)
-scale = Vector2(11.42, 11.018)
-texture_normal = SubResource("AtlasTexture_wq61u")
+scale = Vector2(2.7000005, 2.4142861)
+texture_normal = SubResource("AtlasTexture_8fkuc")
 action = "move_right"
 visibility_mode = 1
 
 [node name="Control2" type="Control" parent="CanvasLayer/Control3" unique_id=737811031]
 layout_mode = 1
+anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -487,8 +501,8 @@ grow_horizontal = 0
 grow_vertical = 0
 
 [node name="TouchScreenButtonJump" type="TouchScreenButton" parent="CanvasLayer/Control3/Control2" unique_id=1864395045]
-scale = Vector2(11.42, 11.018)
-texture_normal = SubResource("AtlasTexture_wq61u")
+scale = Vector2(2.4571426, 2.3714283)
+texture_normal = SubResource("AtlasTexture_y3dfr")
 action = "jump"
 visibility_mode = 1
 
