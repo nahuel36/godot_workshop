@@ -468,6 +468,14 @@ position = Vector2(240, 4)
 libraries/ = SubResource("AnimationLibrary_p1ry8")
 autoplay = &"platform_move"
 
+[node name="Enemys" type="Node" parent="." unique_id=1197516894]
+
+[node name="Slime" parent="Enemys" unique_id=969224363 instance=ExtResource("6_xlg7c")]
+position = Vector2(63, 9)
+
+[node name="Slime2" parent="Enemys" unique_id=370439547 instance=ExtResource("6_xlg7c")]
+position = Vector2(364, -5)
+
 [node name="Coins" type="Node" parent="." unique_id=849756700]
 
 [node name="Coin" parent="Coins" unique_id=1753361655 instance=ExtResource("4_xwcet")]
@@ -497,9 +505,6 @@ position = Vector2(141, -138)
 [node name="Coin4" parent="Coins" unique_id=233017668 instance=ExtResource("4_xwcet")]
 position = Vector2(22, -77)
 
-[node name="Slime" parent="." unique_id=969224363 instance=ExtResource("6_xlg7c")]
-position = Vector2(63, 9)
-
 [node name="Labels" type="Node" parent="." unique_id=811285895]
 
 [node name="LabelScore" type="Label" parent="Labels" unique_id=383300212]
@@ -524,7 +529,7 @@ offset_left = -110.0
 offset_top = 66.0
 offset_right = 25.0
 offset_bottom = 119.0
-text = "v0.7.7"
+text = "v0.7.8"
 label_settings = SubResource("LabelSettings_xlg7c")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1345082049]
