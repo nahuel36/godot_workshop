@@ -473,9 +473,11 @@ autoplay = &"platform_move"
 
 [node name="Slime" parent="Enemys" unique_id=969224363 instance=ExtResource("6_xlg7c")]
 position = Vector2(63, 9)
+initialDir = 1
 
 [node name="Slime2" parent="Enemys" unique_id=370439547 instance=ExtResource("6_xlg7c")]
 position = Vector2(364, -5)
+initialDir = 1
 
 [node name="Coins" type="Node" parent="." unique_id=849756700]
 

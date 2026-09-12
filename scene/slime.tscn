@@ -61,6 +61,8 @@ frame_progress = 0.5380179
 position = Vector2(0, -9)
 shape = SubResource("CircleShape2D_hjaqi")
 
+[node name="Timer" type="Timer" parent="." unique_id=1482301753]
+
 [node name="KillZone" parent="." unique_id=1319863359 instance=ExtResource("2_4l1t8")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone" unique_id=227977538]
@@ -74,3 +76,5 @@ target_position = Vector2(3, 0)
 [node name="RayCast2DLeft" type="RayCast2D" parent="." unique_id=217525358]
 position = Vector2(-7, -12)
 target_position = Vector2(-3, 0)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
